@@ -9,7 +9,7 @@
 
 <script>
 async function loadTasks() {
-    const res = await fetch('/api/tasks');
+    const res = await fetch('http://backend:5000/tasks');
     const tasks = await res.json();
     const list = document.getElementById('task-list');
     list.innerHTML = '';
@@ -22,7 +22,7 @@ async function loadTasks() {
 
 async function addTask() {
     const input = document.getElementById('task-input');
-    await fetch('/api/tasks', {
+    await fetch('http://backend:5000/tasks', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({title: input.value})
